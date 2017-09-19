@@ -44,7 +44,7 @@ When the plugin is successfully installed, your html code should be minified.
 It's active by default but it's possible to turn it off. It's especially useful with [multi environmental setup](https://getkirby.com/docs/developer-guide/configuration/options#multi-environment-setup).
 
 ```php
-c::set('plugin.html.minifier.active', true));
+c::set('plugin.html.minifier.active', true);
 ```
 
 ## Changelog
