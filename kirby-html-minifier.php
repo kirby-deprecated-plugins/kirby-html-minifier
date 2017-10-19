@@ -1,27 +1,35 @@
 <?php
-namespace JensTornell;
+namespace KirbyMinifier;
 
-use C;
+use c;
+use str;
 use Kirby\Component\Response;
-use zz\Html\HTMLMinify;
+use Minify_HTML;
 
-$path = __DIR__ . DS . 'HTMLMinify' . DS;
+require __DIR__ . DS . 'mclay-minify' . DS . 'HTML.php';
 
-require_once $path . 'HTMLNames.php';
-require_once $path . 'HTMLToken.php';
-require_once $path . 'HTMLTokenizer.php';
-require_once $path . 'SegmentedString.php';
-require_once $path . 'HTMLMinify.php';
-
-class HtmlMinifier extends Response {
+class Minifier extends Response {
 	public function make($response) {
 		$buffer = parent::make( $response );
-		
-		if($buffer && c::get('plugin.html.minifier.active', true)) {
-			return HTMLMinify::minify($buffer);
+
+		if(empty($buffer)) return '';
+		if(!c::get('plugin.html.minifier.active', true)) return $buffer;
+		if(!$this->minifierAllowed()) return $buffer;
+
+		return Minify_HTML::minify($buffer, c::get('plugin.html.minifier.options', []));
+	}
+
+	public function minifierAllowed() {
+		$parents = c::get('plugin.html.minifier.blacklist', []);
+		$parents = (is_string($parents)) ? [$parents] : $parents;
+		$page_id = page()->id();
+		foreach($parents as $parent) {
+			if(str::startsWith($page_id, $parent . '/') || $parent == $page_id) {
+				return false;
+			}
 		}
-		return $buffer;
+		return true;
 	}
 }
 
-$kirby->set('component', 'response', 'JensTornell\HtmlMinifier');
+$kirby->set('component', 'response', 'KirbyMinifier\Minifier');
