@@ -6,102 +6,31 @@
 
 Compress/minify the html output of a site built with Kirby CMS.
 
-## Installation
+1. [Install the plugin](docs/installation.md) and it should work out of the box.
+1. [Options](docs/options.md) are also available.
 
-Use one of the alternatives below.
+## Minified starterkit
 
-### 1. Kirby CLI
+Here is an example of the starterkit home page minified:
 
-If you are using the [Kirby CLI](https://github.com/getkirby/cli) you can install this plugin by running the following commands in your shell:
-
-```text
-$ cd path/to/kirby
-$ kirby plugin:install jenstornell/kirby-html-minifier
+```html
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Kirby Starterkit | Home</title><meta name="description" content="This is Kirby's Starterkit."><link rel="stylesheet" href="http://localhost/plugins/kirby-html-minifier/assets/css/index.css"></head><body><header class="header wrap wide" role="banner"><div class="grid"><div class="branding column">
+<a href="http://localhost/plugins/kirby-html-minifier" rel="home">Kirby Starterkit</a></div><nav class="navigation column" role="navigation"><ul class="menu"><li class="menu-item">
+<a href="http://localhost/plugins/kirby-html-minifier/projects">Projects</a></li><li class="menu-item">
+<a href="http://localhost/plugins/kirby-html-minifier/blog">Blog</a></li><li class="menu-item">
+<a href="http://localhost/plugins/kirby-html-minifier/about">About</a></li><li class="menu-item">
+<a href="http://localhost/plugins/kirby-html-minifier/contact">Contact</a></li></ul></nav></div></header><main class="main" role="main"><header class="wrap"><h1>Home</h1><div class="intro text"><p>Yay! If you are seeing this, the installation of Kirby worked. :-)</p></div><hr /></header><div class="text wrap"><h2>Get started</h2><ul><li>Go to the <a href="http://localhost/plugins/kirby-html-minifier/panel">Panel</a> to give Kirby's admin interface a try</li><li>Check out the <a href="http://getkirby.com/docs">docs</a> and start building your own site</li><li>Follow <a href="https://twitter.com/getkirby">@getkirby</a> on Twitter for updates</li><li>Visit the <a href="http://forum.getkirby.com">forum</a> to connect with other Kirby users</li><li>Sign up to <a href="https://getkirby.com/#kosmos">Kirby Kosmos</a>, our monthly newsletter</li><li><a href="http://getkirby.com/support">Get in contact</a> if you need support.</li></ul><p><strong>Have fun with Kirby!</strong></p></div><section class="projects-section"><div class="wrap wide"><h2>Latest Projects</h2><ul class="showcase grid gutter-1"><li class="showcase-item column">
+<a href="http://localhost/plugins/kirby-html-minifier/projects/project-a" class="showcase-link">
+<img src="http://localhost/plugins/kirby-html-minifier/thumbs/projects/project-a/creative-tools-600x600.jpg" alt="Thumbnail for Project A" class="showcase-image" /><div class="showcase-caption"><h3 class="showcase-title">Project A</h3></div>
+</a></li><li class="showcase-item column">
+<a href="http://localhost/plugins/kirby-html-minifier/projects/project-b" class="showcase-link">
+<img src="http://localhost/plugins/kirby-html-minifier/thumbs/projects/project-b/room-600x600.jpg" alt="Thumbnail for Project B" class="showcase-image" /><div class="showcase-caption"><h3 class="showcase-title">Project B</h3></div>
+</a></li><li class="showcase-item column">
+<a href="http://localhost/plugins/kirby-html-minifier/projects/project-c" class="showcase-link">
+<img src="http://localhost/plugins/kirby-html-minifier/thumbs/projects/project-c/camera-600x600.jpg" alt="Thumbnail for Project C" class="showcase-image" /><div class="showcase-caption"><h3 class="showcase-title">Project C</h3></div>
+</a></li></ul><p class="projects-section-more"><a href="http://localhost/plugins/kirby-html-minifier/projects" class="btn">show all projects &hellip;</a></p></div></section></main><footer class="footer cf" role="contentinfo"><div class="wrap wide"><p class="footer-copyright">© 2009–2017 The Kirby Team</p><p class="footer-madewithkirby">
+<a href="http://getkirby.com/made-with-kirby-and-love">Made with Kirby and <b class="heart">♥</b></a></p></div></footer></body></html>
 ```
-
-### 2. Clone or download
-
-1. [Clone](https://github.com/jenstornell/kirby-html-minifier.git) or [download](https://github.com/jenstornell/kirby-html-minifier/archive/master.zip)  this repository.
-2. Unzip the archive if needed and rename the folder to `kirby-html-minifier`.
-
-**Make sure that the plugin folder structure looks like this:**
-
-```text
-site/plugins/kirby-html-minifier/
-```
-
-### 3. Git Submodule
-
-If you know your way around Git, you can download this plugin as a submodule:
-
-```text
-$ cd path/to/kirby
-$ git submodule add https://github.com/jenstornell/kirby-html-minifier site/plugins/kirby-html-minifier
-```
-
-When the plugin is successfully installed, your html code should be minified.
-
-## Options
-
-```php
-c::set('plugin.html.minifier.active', true);
-c::get('plugin.html.minifier.options',[]);
-c::get('plugin.html.minifier.blacklist', []);
-```
-
-## active
-
-It's active by default but it's possible to turn it off. It's especially useful with [multi environmental setup](https://getkirby.com/docs/developer-guide/configuration/options#multi-environment-setup).
-
-```php
-c::set('plugin.html.minifier.active', true);
-```
-
-## options
-If you are a hardcore user you can use the options of the `Minify_HTML` class.
-
-```php
-c::get('plugin.html.minifier.options', []);
-```
-
-Read about the options in the [code](https://github.com/mrclay/minify/blob/master/lib/Minify/HTML.php#L69).
-
-## blacklist
-
-You can disable pages from being minified by adding page id(s) as a string or an array. Every child to that page will be disabled as well.
-
-**Example**
-
-```php
-c::get('plugin.html.minifier.blacklist', ['about', 'projects']);
-```
-
-## Changelog
-
-**0.4**
-
-- Changed minifier engine back to [mrclay/minify](https://github.com/mrclay/minify) because of minify problems.
-- Made a minor edit to prevent breaking inside tags.
-- Tested SVG files with good result.
-- Option `plugin.html.minifier.options` added back.
-- Option `plugin.html.minifier.blacklist` added.
-
-**0.3**
-
-- Changed minifier engine to [zaininnari/html-minifier](https://github.com/zaininnari/html-minifier).
-- The issue with breaking tags is fixed with the new minifier engine.
-- Added a fix for package.json.
-- Removed option `plugin.html.minifier.options` because of the new minifier engine.
-
-**0.2**
-
-- Added namespaces.
-- Inherit response from parent.
-- Added options.
-
-**0.1**
-
-- Inititial release
 
 ## Troubleshooting
 
@@ -109,7 +38,7 @@ If it does not work, make sure you don't have some cache activated.
 
 ## Requirements
 
-- [**Kirby**](https://getkirby.com/) 2.3 beta 2
+- [**Kirby**](https://getkirby.com/) 2.5.5
 
 ## Disclaimer
 
