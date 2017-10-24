@@ -4,19 +4,21 @@ namespace KirbyMinifier;
 use c;
 use str;
 use Kirby\Component\Response;
+use TinyHtmlMinifier;
 use Minify_HTML;
+use TinyMinify;
 
-require __DIR__ . DS . 'mclay-minify' . DS . 'HTML.php';
+require __DIR__ . DS . 'tiny-html-minifier' . DS . 'tiny-html-minifier.php';
 
 class Minifier extends Response {
 	public function make($response) {
-		$buffer = parent::make( $response );
+		$html = parent::make( $response );
 
-		if(empty($buffer)) return '';
-		if(!c::get('plugin.html.minifier.active', true)) return $buffer;
-		if(!$this->minifierAllowed()) return $buffer;
-
-		return Minify_HTML::minify($buffer, c::get('plugin.html.minifier.options', []));
+		if(empty($html)) return '';
+		if(!c::get('plugin.html.minifier.active', true)) return $html;
+		if(!$this->minifierAllowed()) return $html;
+		
+		return TinyMinify::html($html, c::get('plugin.html.minifier.options', []));
 	}
 
 	public function minifierAllowed() {

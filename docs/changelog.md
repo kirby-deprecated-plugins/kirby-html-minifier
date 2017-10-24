@@ -1,5 +1,11 @@
 # Changelog
 
+**0.5**
+
+- Wrote an own [tiny-html-minifier](https://github.com/jenstornell/tiny-html-minifier) class to get complete control.
+- Changed to my new minifier class.
+- Option `plugin.html.minifier.options` is still present, but work a bit different.
+
 **0.4**
 
 - Changed minifier engine back to [mrclay/minify](https://github.com/mrclay/minify) because of minify problems.

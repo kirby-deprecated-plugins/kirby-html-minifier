@@ -21,7 +21,7 @@ If you are a hardcore user you can use the options of the `Minify_HTML` class.
 c::get('plugin.html.minifier.options', []);
 ```
 
-Read about the options in the [code](https://github.com/mrclay/minify/blob/master/lib/Minify/HTML.php#L69).
+[Read more](https://github.com/jenstornell/tiny-html-minifier#options) about the options.
 
 ### blacklist
 
