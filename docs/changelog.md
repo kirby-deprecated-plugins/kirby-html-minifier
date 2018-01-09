@@ -1,5 +1,9 @@
 # Changelog
 
+**0.6**
+
+- Updated [tiny-html-minifier](https://github.com/jenstornell/tiny-html-minifier) to version 1.2.
+
 **0.5**
 
 - Wrote an own [tiny-html-minifier](https://github.com/jenstornell/tiny-html-minifier) class to get complete control.
