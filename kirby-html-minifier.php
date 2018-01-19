@@ -4,14 +4,18 @@ namespace KirbyMinifier;
 use c;
 use str;
 use Kirby\Component\Response;
-use TinyHtmlMinifier;
-use Minify_HTML;
 use TinyMinify;
 
 require __DIR__ . DS . 'tiny-html-minifier' . DS . 'tiny-html-minifier.php';
 
 class Minifier extends Response {
 	public function make($response) {
+
+        $response_format = $response->format();
+        if($response_format == 'js' || $response_format == 'css') {
+            return $response;
+        }
+
 		$html = parent::make( $response );
 
 		if(empty($html)) return '';
