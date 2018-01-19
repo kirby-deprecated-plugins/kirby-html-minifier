@@ -11,17 +11,16 @@ require __DIR__ . DS . 'tiny-html-minifier' . DS . 'tiny-html-minifier.php';
 class Minifier extends Response {
 	public function make($response) {
 
-        $response_format = $response->format();
-        if($response_format == 'js' || $response_format == 'css') {
-            return $response;
-        }
+		if($this->isBlacklisted($response->format())) {
+			return $response;
+		}
 
 		$html = parent::make( $response );
 
 		if(empty($html)) return '';
 		if(!c::get('plugin.html.minifier.active', true)) return $html;
 		if(!$this->minifierAllowed()) return $html;
-		
+
 		return TinyMinify::html($html, c::get('plugin.html.minifier.options', []));
 	}
 
@@ -35,6 +34,11 @@ class Minifier extends Response {
 			}
 		}
 		return true;
+	}
+
+	private function isBlacklisted($format, $blacklist = ['js', 'css'])
+	{
+		return in_array($format, $blacklist);
 	}
 }
 
