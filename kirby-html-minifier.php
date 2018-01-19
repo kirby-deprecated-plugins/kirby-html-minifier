@@ -12,6 +12,10 @@ require __DIR__ . DS . 'tiny-html-minifier' . DS . 'tiny-html-minifier.php';
 
 class Minifier extends Response {
 	public function make($response) {
+		if($this->isBlacklisted($response->format())) {
+	            return $response;
+        	}
+		
 		$html = parent::make( $response );
 
 		if(empty($html)) return '';
@@ -31,6 +35,11 @@ class Minifier extends Response {
 			}
 		}
 		return true;
+	}
+	
+	private function isBlacklisted($format, $blacklist = ['js', 'css'])
+	{
+		return in_array($format, $blacklist);
 	}
 }
 
