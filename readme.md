@@ -2,7 +2,7 @@
 
 ![Version 0.8](https://img.shields.io/badge/version-0.8-blue.svg) ![MIT license](https://img.shields.io/badge/license-MIT-green.svg) [![Donate](https://img.shields.io/badge/give-donation-yellow.svg)](https://www.paypal.me/DevoneraAB)
 
-Compress/minify the html output of a site built with Kirby CMS.
+Compress/minify the html output of a site built with Kirby CMS. It's build upon [Tiny HTML Minifier](https://github.com/jenstornell/tiny-html-minifier).
 
 1. [Install the plugin](docs/installation.md) and it should work out of the box.
 1. [Options](docs/options.md) are also available.
