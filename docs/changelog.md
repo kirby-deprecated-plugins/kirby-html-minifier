@@ -1,5 +1,9 @@
 # Changelog
 
+**0.8**
+
+- Updated [tiny-html-minifier](https://github.com/jenstornell/tiny-html-minifier) to version 2.0 which solves some bugs reported.
+
 **0.7**
 
 - Prevent processing of blacklisted response formats. By default it does not minify CSS and JS. Special thanks to @gearsdigital for the pull request.
