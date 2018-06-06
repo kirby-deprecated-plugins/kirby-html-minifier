@@ -2,8 +2,8 @@
 
 ```php
 c::set('plugin.html.minifier.active', true);
-c::get('plugin.html.minifier.options',[]);
-c::get('plugin.html.minifier.blacklist', []);
+c::set('plugin.html.minifier.options',[]);
+c::set('plugin.html.minifier.blacklist', []);
 ```
 
 ### active
@@ -18,7 +18,7 @@ c::set('plugin.html.minifier.active', true);
 If you are a hardcore user you can use the options of the `Minify_HTML` class.
 
 ```php
-c::get('plugin.html.minifier.options', []);
+c::set('plugin.html.minifier.options', []);
 ```
 
 [Read more](https://github.com/jenstornell/tiny-html-minifier#options) about the options.
@@ -30,5 +30,5 @@ You can disable pages from being minified by adding page id(s) as a string or an
 **Example**
 
 ```php
-c::get('plugin.html.minifier.blacklist', ['about', 'projects']);
+c::set('plugin.html.minifier.blacklist', ['about', 'projects']);
 ```
