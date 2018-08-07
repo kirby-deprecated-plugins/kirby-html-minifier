@@ -1,8 +1,0 @@
-{
-  "name": "kirby-html-minifier",
-  "description": "Html Minifier for Kirby CMS",
-  "author": "Jens Törnell <jens.tornell@gmail.com>",
-  "version": "0.8",
-  "type": "kirby-plugin",
-  "license": "MIT"
-}

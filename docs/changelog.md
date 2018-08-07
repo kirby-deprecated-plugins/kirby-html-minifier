@@ -1,5 +1,10 @@
 # Changelog
 
+**0.9 beta**
+
+- Kirby 3 required
+- Uses the hook route:after which needs to be set in the config file
+
 **0.8**
 
 - Updated [tiny-html-minifier](https://github.com/jenstornell/tiny-html-minifier) to version 2.0 which solves some bugs reported.
