@@ -1,6 +1,6 @@
 # Kirby Html Minifier
 
-Minifies the html output. It's build upon [Tiny HTML Minifier](https://github.com/jenstornell/tiny-html-minifier).
+Minify your html output. It's build upon [Tiny HTML Minifier](https://github.com/jenstornell/tiny-html-minifier).
 
 - **Version:** 0.9 beta
 - **Requirement:** Kirby 3
@@ -14,11 +14,11 @@ To prevent collisions with other plugins, you need to setup the hook yourself, b
 
 ```php
 return [
-    'hooks' => [
-		'route:after' => function($route, $path, $method, $result) {
-            HtmlMinifier::minify($result);
-        }
-    ]
+  'hooks' => [
+    'route:after' => function($route, $path, $method, $result) {
+      HtmlMinifier::minify($result);
+    }
+  ]
 ];
 ```
 
