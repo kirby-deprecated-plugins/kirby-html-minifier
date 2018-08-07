@@ -4,6 +4,8 @@
 
 - Kirby 3 required
 - Uses the hook route:after which needs to be set in the config file
+- Added support for routes
+- Disallows all files that does not have text/html
 
 **0.8**
 
