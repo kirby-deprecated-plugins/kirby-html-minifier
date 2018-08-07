@@ -10,7 +10,7 @@ Minify your html output. It's build upon [Tiny HTML Minifier](https://github.com
 
 ## Options
 
-To prevent collisions with other plugins, you need to setup the hook yourself, but it's super simple.
+To prevent collisions with other plugins, you need to setup the hook yourself in the config file.
 
 ```php
 return [
