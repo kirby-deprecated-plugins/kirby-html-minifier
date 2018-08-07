@@ -28,3 +28,4 @@ return [
 - [@ian-cox](https://github.com/ian-cox) for inspiration from the plugin [Kirby MinifyHTML](https://github.com/ian-cox/Kirby-MinifyHTML).
 - [@lukasbestle](https://github.com/lukasbestle) for all the improvements.
 - [@gearsdigital](https://github.com/gearsdigital) for the blacklisted response formats.
+- [@schnti](https://github.com/schnti) for pull request.
