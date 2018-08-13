@@ -1,5 +1,11 @@
 # Changelog
 
+**1.0 beta**
+
+- Because of caching issues with routes::after, I switched to respose component.
+- Kirby cache is now supported.
+- A new option introduced. `jenstornell.kirby-html-minifier-active`. If you need to setup your own response component you can do that by setting this option to `false`.
+
 **0.9 beta**
 
 - Kirby 3 required

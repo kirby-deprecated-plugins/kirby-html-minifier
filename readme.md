@@ -2,7 +2,7 @@
 
 Minify your html output. It's build upon [Tiny HTML Minifier](https://github.com/jenstornell/tiny-html-minifier).
 
-- **Version:** 0.9 beta
+- **Version:** 1.0 beta
 - **Requirement:** Kirby 3
 - [Changelog](docs/changelog.md)
 - [Disclaimer](https://devonera.se/docs/disclaimer/?user=jenstornell&plugin=kirby-html-minifier)
@@ -10,17 +10,15 @@ Minify your html output. It's build upon [Tiny HTML Minifier](https://github.com
 
 ## Options
 
-To prevent collisions with other plugins, you need to setup the hook yourself in the config file.
+By default this plugin uses the response component. It means no other plugins can use it. If you want to have full control of your response component, you can detach it from this plugin by setting the option below to `false`.
 
 ```php
 return [
-  'hooks' => [
-    'route:after' => function($route, $path, $method, $result) {
-      HtmlMinifier::minify($result);
-    }
-  ]
+  'jenstornell.kirby-html-minifier.active' => true,
 ];
 ```
+
+Even if the plugin is not active, you can still use the methods. To minify something on your own you can do this: `HtmlMinifier::minify($page_object)`.
 
 ## Credits
 
